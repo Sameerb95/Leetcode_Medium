@@ -1,0 +1,21 @@
+class Solution:
+    def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
+        c = Counter(arr)
+        for i,v in sorted(c.items(),key = lambda x:x[1]):
+            # print(k)
+            if k == 0:
+                break
+            else:
+                while k != 0 :
+                    if c[i] != 0:
+                        # print(c)
+                        c[i]-=1
+                    else:
+                        break
+                    k = k-1
+                    
+        return len([i for i,v in c.items() if v!=0])
+        
+        
+Runtime: 492 ms, faster than 63.23% of Python3 online submissions for Least Number of Unique Integers after K Removals.
+Memory Usage: 33.8 MB, less than 38.56% of Python3 online submissions for Least Number of Unique Integers after K Removals.
