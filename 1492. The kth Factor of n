@@ -1,0 +1,13 @@
+class Solution:
+    def kthFactor(self, n: int, k: int) -> int:
+        factors = []
+        for i in range(1,n+1):
+            if n%i == 0:
+                factors.append(i)
+        try:       
+            return factors[k-1]
+        except IndexError:
+            return -1
+        
+Runtime: 24 ms, faster than 97.64% of Python3 online submissions for The kth Factor of n.
+Memory Usage: 14.3 MB, less than 48.73% of Python3 online submissions for The kth Factor of n.
