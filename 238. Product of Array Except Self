@@ -1,0 +1,21 @@
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        r = [1]*len(nums)
+        for i in range(len(nums)):
+            if i ==0:
+                r[i] = nums[i]
+            r[i] = r[i-1] * nums[i]
+
+        p = 1
+
+        for i in range(len(nums)-1,0,-1):
+            r[i] = p * r[i-1]
+            p *= nums[i]
+            # print(r)
+        r[0] = p
+        
+        return r
+        
+        
+Runtime: 240 ms, faster than 72.22% of Python3 online submissions for Product of Array Except Self.
+Memory Usage: 21.1 MB, less than 84.23% of Python3 online submissions for Product of Array Except Self.
